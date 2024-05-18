@@ -1,4 +1,9 @@
 package com.aleshka.workflow.model.event;
 
-public interface EventSource {
+import com.aleshka.workflow.model.WithName;
+import lombok.Value;
+
+@Value
+public class EventSource implements WithName {
+    String name;
 }

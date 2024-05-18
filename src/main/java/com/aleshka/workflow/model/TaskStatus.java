@@ -1,4 +1,8 @@
 package com.aleshka.workflow.model;
 
-public interface TaskStatus extends WithName {
+import lombok.Value;
+
+@Value
+public class TaskStatus implements WithName {
+    String name;
 }

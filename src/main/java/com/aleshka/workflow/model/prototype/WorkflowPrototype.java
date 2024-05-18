@@ -1,8 +1,16 @@
 package com.aleshka.workflow.model.prototype;
 
+import com.aleshka.workflow.model.event.matchers.EventMatcher;
+import lombok.Builder;
+import lombok.Value;
+
 import java.util.Collection;
 
-public interface WorkflowPrototype extends Prototype {
-    Collection<TaskPrototype> getTasks();
-    Collection<WorkflowTaskTransitionPrototype> getTransitions();
+@Value
+@Builder
+public class WorkflowPrototype implements Prototype {
+    WorkflowPrototypeId id;
+    Collection<TaskPrototype> tasks;
+    Collection<EventMatcher> creationTriggers;
+    Collection<EventMatcher> completionTriggers;
 }

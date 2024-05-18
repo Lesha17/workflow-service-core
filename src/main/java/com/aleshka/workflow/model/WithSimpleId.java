@@ -1,5 +1,5 @@
 package com.aleshka.workflow.model;
 
-public interface WithId {
+public interface WithSimpleId {
     String getId();
 }

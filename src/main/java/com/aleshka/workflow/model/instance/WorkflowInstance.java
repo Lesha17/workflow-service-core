@@ -1,10 +1,17 @@
 package com.aleshka.workflow.model.instance;
 
+import com.aleshka.workflow.model.prototype.WorkflowPrototypeId;
+import lombok.Builder;
+import lombok.Value;
+
 import java.util.Collection;
 
-public interface WorkflowInstance<T> extends Instance {
-    boolean isCompleted();
-    Collection<TaskInstance<?>> getActiveTasks();
-    Collection<WorkflowTaskTransition> getCompletedTaskTransitions();
-    T getDataHolder();
+@Value
+@Builder(toBuilder = true)
+public class WorkflowInstance<T> implements Instance {
+    String id;
+    WorkflowPrototypeId workflowPrototypeId;
+    boolean completed;
+    Collection<TaskInstance<?>> tasks;
+    T data;
 }
